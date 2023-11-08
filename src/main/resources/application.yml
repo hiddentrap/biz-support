@@ -1,0 +1,24 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+spring:
+  profiles:
+    active: local
+
+  servlet:
+    multipart:
+      max-file-size: 10MB # limit file uplaod max size
+      max-request-size: 100MB # limit total size of all upload files in multipart
+  cloud:
+    openfeign:
+      client:
+        config:
+          default:
+            connect-timeout: 5000 # 3way handshake max 시간
+            read-timeout: 5000 # 연결 이후 응답 최대 대기시간
+
+logging:
+  level:
+    com.app: debug # TODO 패키지 수정

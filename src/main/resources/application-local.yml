@@ -1,0 +1,38 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/api_app?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: user01
+    password: user01
+  sql:
+    init:
+      schema-locations: classpath:db/schema-mysql.sql
+      #      data-locations: classpath:db/data-mysql.sql
+      mode: never
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true #기본값
+    auto-mapping-behavior: full
+    local-cache-scope: statement # 캐시 사용안함
+    cache-enabled: false # 보조캐시 사용안함
+  global-config:
+    banner: false
+    db-config:
+      id-type: assign_id
+      capital-mode: true
+
+kakao:
+  client:
+    id: 69590e7e74fc3a20e81c254255084dca
+    secret: u7148oCAVqaemvlh6qPioGUjJgxR6hSD
+
+token:
+  secret: thisisdummykeythisisdummykeythisisdummykeythisisdummykeythisisdummykey # 임의의 문자열
+  access-token-expiration-time: 900000 # 15분 1000(ms) x 60(s) x 15(m)
+  refresh-token-expiration-time: 1209600000 # 2주 1000(ms) x 60(s) x 60(m) x 24(h) x 14(d)
+
+jasypt:
+  encryptor:
+    password: dummy
+    #    password: ${PASSWORD}
